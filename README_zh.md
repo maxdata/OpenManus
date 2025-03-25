@@ -177,3 +177,17 @@ OpenManus 由 MetaGPT 社区的贡献者共同构建，感谢这个充满活力�
   howpublished = {\url{https://github.com/mannaandpoem/OpenManus}},
 }
 ```
+
+## 快速开始
+
+### 安装
+
+```bash
+# 克隆仓库
+git clone https://github.com/OpenManus/OpenManus.git
+cd OpenManus
+
+# 安装依赖
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv sync
+```

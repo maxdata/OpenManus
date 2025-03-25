@@ -1,13 +1,13 @@
-FROM python:3.12-slim
+FROM python:3.11-slim
 
-WORKDIR /app/OpenManus
-
-RUN apt-get update && apt-get install -y --no-install-recommends git curl \
-    && rm -rf /var/lib/apt/lists/* \
-    && (command -v uv >/dev/null 2>&1 || pip install --no-cache-dir uv)
+WORKDIR /app
 
 COPY . .
 
-RUN uv pip install --system -r requirements.txt
+RUN apt-get update && apt-get install -y curl \
+    && curl -LsSf https://astral.sh/uv/install.sh | sh \
+    && uv sync
 
-CMD ["bash"]
+ENV PYTHONPATH=/app
+
+CMD ["python", "main.py"]
